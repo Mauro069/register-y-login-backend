@@ -1,0 +1,21 @@
+{
+  "name": "backend-login-and-register",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon App.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
