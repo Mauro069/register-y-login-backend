@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
-const usuario = require("../model/usuario");
 const Usuario = require("../model/usuario");
+const jwt = require("jsonwebtoken");
 
 const login = async (req, res) => {
   const { correo, contraseña } = req.body;
@@ -14,11 +14,21 @@ const login = async (req, res) => {
       if (esCorrecta) {
         const { id, nombre } = usuario;
 
+        const data = {
+          id,
+          nombre,
+        };
+
+        const token = jwt.sign(data, "secreto", {
+          expiresIn: 86400 /* 24hs */,
+        });
+
         res.json({
           mensaje: "Usuario logeado correctamente",
           usuario: {
             id,
             nombre,
+            token,
           },
         });
       } else {
